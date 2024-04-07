@@ -28,3 +28,57 @@ server.listen(3000, '127.0.0.1', () => {
 });
 ```
 This code creates a simple HTTP server that listens on port 3000 and responds with "Hello World" for every request.
+
+### Reading and Writing Files
+
+Node.js provides the fs (File System) module to interact with the file system on your computer.
+
+Reading Files
+
+To read a file, you can use the fs.readFile method:
+
+```javascript
+const fs = require('fs');
+
+fs.readFile('./path/to/your/file.txt', 'utf8', (err, data) => {
+ if (err) {
+    console.error('Error reading file:', err);
+    return;
+ }
+ console.log('File content:', data);
+});
+```
+Writing Files
+
+To write to a file, you can use the fs.writeFile method:
+
+```javascript
+const fs = require('fs');
+
+fs.writeFile('./path/to/your/file.txt', 'Hello, World!', (err) => {
+ if (err) {
+    console.error('Error writing file:', err);
+    return;
+ }
+ console.log('File has been written');
+});
+```
+
+### Working with JSON Files
+
+Node.js makes it easy to work with JSON files. You can read and write JSON data using the fs module.
+
+Reading JSON Files
+
+```javascript
+const fs = require('fs');
+
+fs.readFile('./path/to/your/data.json', 'utf8', (err, data) => {
+ if (err) {
+    console.error('Error reading JSON file:', err);
+    return;
+ }
+ const jsonData = JSON.parse(data);
+ console.log('JSON data:', jsonData);
+});
+```
